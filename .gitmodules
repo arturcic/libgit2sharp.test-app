@@ -1,0 +1,6 @@
+[submodule "native"]
+	path = native
+	url = https://github.com/arturcic/libgit2sharp.nativebinaries.git
+[submodule "libgit2sharp"]
+	path = libgit2sharp
+	url = https://github.com/arturcic/libgit2sharp.git
