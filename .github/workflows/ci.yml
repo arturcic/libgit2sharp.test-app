@@ -46,20 +46,17 @@ jobs:
         with:
           submodules: true
       - name: Build Windows
-        working-directory: ./native
         if: runner.os == 'Windows'
-        run: ./build.libgit2.ps1 ${{ matrix.param }}
-      - name: Build macOS
-        working-directory: ./native
+        run: cd native; ./build.libgit2.ps1 ${{ matrix.param }}
+      - name: Build macOS        
         if: runner.os == 'macOS'
-        run: ./build.libgit2.sh
+        run: cd native; ./build.libgit2.sh
       - name: Setup QEMU
         run: docker run --rm --privileged multiarch/qemu-user-static:register --reset
         if: matrix.name == 'linux-musl-arm' || matrix.name == 'linux-musl-arm64'
       - name: Build Linux
-        working-directory: ./native
         if: runner.os == 'Linux'
-        run: ./dockerbuild.sh
+        run: cd native; ./dockerbuild.sh
       - name: Upload artifacts
         uses: actions/upload-artifact@v2.2.2
         with:
