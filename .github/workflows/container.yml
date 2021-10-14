@@ -11,3 +11,5 @@ jobs:
         uses: actions/checkout@v2
         with:
           submodules: true
+      - name: check code
+        run: dotnet run --project ./libgit2sharp/LibGit2Sharp.LoadTest/LibGit2Sharp.LoadTest.csproj
