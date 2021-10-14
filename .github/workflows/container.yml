@@ -7,7 +7,7 @@ jobs:
     container:
       image: gittools/build-images:ubuntu.20.04-sdk-6.0
     steps:
-         - name: Log the node version
-           run: |
-             cat /etc/os-release 
-             dotnet --info
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          submodules: true
