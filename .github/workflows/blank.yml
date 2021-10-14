@@ -5,4 +5,4 @@ on:
 
 jobs:
     call-workflow:
-        uses: arturcic/libgit2sharp.nativebinaries.github/workflows/ci.yml@v1
+        uses: arturcic/libgit2sharp.nativebinaries/.github/workflows/ci.yml@master
