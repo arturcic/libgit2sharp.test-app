@@ -4,5 +4,17 @@ on:
   workflow_dispatch:
 
 jobs:
-    call-workflow:
-        uses: ./native/.github/workflows/ci.yml@master
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    name: download artifacts
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download artifact
+        uses: dawidd6/action-download-artifact@v2
+        with:
+          github_token: ${{secrets.GITHUB_TOKEN}}
+          workflow: ci.yml
+          workflow_conclusion: success
+          repo: arturcic/libgit2sharp.nativebinaries
+          name: NuGet package
