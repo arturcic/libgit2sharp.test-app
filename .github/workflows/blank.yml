@@ -13,7 +13,6 @@ jobs:
       - name: Download artifact
         uses: dawidd6/action-download-artifact@v2
         with:
-          github_token: ${{secrets.GITHUB_TOKEN}}
           workflow: ci.yml
           workflow_conclusion: success
           repo: libgit2/libgit2sharp.nativebinaries
