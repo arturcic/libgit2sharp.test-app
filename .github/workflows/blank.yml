@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       branch:
-        description: 'Define branch name'     
+        description: 'Branch, tag or commit'     
         required: true
         default: 'master'
 jobs:
@@ -16,12 +16,13 @@ jobs:
     steps:
       -
         name: Log inputs
-        run: echo ${{github.event.inputs.name}}
+        run: echo "Hello ${{ github.event.inputs.branch }}!"
       - name: Download artifact
         uses: dawidd6/action-download-artifact@v2
         with:
           workflow: ci.yml
           workflow_conclusion: success
           repo: arturcic/libgit2sharp.nativebinaries
+          branch: ${{ github.event.inputs.branch }}
           name: NuGet package
           
